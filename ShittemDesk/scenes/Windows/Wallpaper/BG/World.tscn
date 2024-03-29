@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://dky4hdfjhdhgx"]
+
+[ext_resource type="Shader" path="res://shaders/SkyShader.gdshader" id="1_trmuy"]
+[ext_resource type="Script" path="res://scenes/Windows/Wallpaper/BG/World.gd" id="1_yv7t4"]
+
+[sub_resource type="Gradient" id="Gradient_0758f"]
+offsets = PackedFloat32Array(0.25, 0.5, 0.75)
+colors = PackedColorArray(0.8, 0.466667, 0.286275, 1, 1, 1, 1, 1, 0.8, 0.466667, 0.286275, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 12
+
+[sub_resource type="Curve" id="Curve_c84ob"]
+_data = [Vector2(0.175711, 0), 0.0, 0.0, 0, 0, Vector2(0.496124, 1), 0.0, 0.0, 0, 0, Vector2(0.832041, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8esrw"]
+offsets = PackedFloat32Array(0.25, 0.5, 0.75)
+colors = PackedColorArray(0.996078, 0.831373, 0.513726, 1, 0.762404, 0.762404, 0.762404, 1, 0.996078, 0.831373, 0.513726, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 12
+
+[sub_resource type="Curve" id="Curve_u6dsx"]
+max_value = 0.2
+_data = [Vector2(0.170543, 0), 0.0, 0.0, 0, 0, Vector2(0.498708, 0.2), 0.0, 0.0, 0, 0, Vector2(0.842377, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ltesf"]
+noise_type = 4
+frequency = 0.0032
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vr6ck"]
+seamless = true
+noise = SubResource("FastNoiseLite_ltesf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nin4t"]
+noise_type = 0
+frequency = 0.0055
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_akgo8"]
+seamless = true
+bump_strength = 0.0
+noise = SubResource("FastNoiseLite_nin4t")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b541o"]
+frequency = 0.0658
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p3fpa"]
+noise = SubResource("FastNoiseLite_b541o")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sa1q7"]
+noise_type = 2
+frequency = 0.068
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cqj8j"]
+noise = SubResource("FastNoiseLite_sa1q7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7p7m"]
+shader = ExtResource("1_trmuy")
+shader_parameter/day_top_color = Color(0.192157, 0.54902, 0.886275, 1)
+shader_parameter/day_horizon_color = Color(0.752941, 0.835294, 1, 1)
+shader_parameter/sunset_top_color = Color(0.811765, 0.380392, 0.215686, 1)
+shader_parameter/sunset_horizon_color = Color(0.921569, 0.690196, 0.52549, 1)
+shader_parameter/night_top_color = Color(0.164706, 0.196078, 0.345098, 1)
+shader_parameter/night_horizon_color = Color(0.298039, 0.509804, 1, 1)
+shader_parameter/horizon_height = 0.05
+shader_parameter/sun_color = Color(1, 1, 1, 1)
+shader_parameter/sun_sunset_color = Color(0.85098, 0.466667, 0.25098, 1)
+shader_parameter/sun_size = 0.783
+shader_parameter/sun_blur = 0.508
+shader_parameter/cloud_direction_1 = Vector2(2, 0)
+shader_parameter/cloud_direction_2 = Vector2(0, 2)
+shader_parameter/cloud_scale = 0.15
+shader_parameter/cloud_dist = 4.75e-08
+shader_parameter/cloud_mix = 0.5
+shader_parameter/cloud_noise_1 = SubResource("NoiseTexture2D_vr6ck")
+shader_parameter/cloud_noise_2 = SubResource("NoiseTexture2D_akgo8")
+shader_parameter/time = 0.403548
+shader_parameter/cloud_time_scale = 0.025
+shader_parameter/sunset_duration = 0.2
+shader_parameter/star_noise_1 = SubResource("NoiseTexture2D_p3fpa")
+shader_parameter/star_noise_2 = SubResource("NoiseTexture2D_cqj8j")
+
+[sub_resource type="Sky" id="Sky_jakp4"]
+sky_material = SubResource("ShaderMaterial_h7p7m")
+
+[sub_resource type="Environment" id="Environment_2w3yo"]
+background_mode = 2
+sky = SubResource("Sky_jakp4")
+tonemap_mode = 1
+tonemap_white = 2.33
+fog_enabled = true
+fog_light_color = Color(0.243137, 0.411765, 0.54902, 1)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_yv7t4")
+day_speed = 3600.0
+time = 34866.5
+sun_color = SubResource("Gradient_0758f")
+sun_strength = SubResource("Curve_c84ob")
+moon_color = SubResource("Gradient_8esrw")
+moon_strength = SubResource("Curve_u6dsx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2w3yo")
+
+[node name="sun_rotate_x" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="sun_rotate_x"]
+transform = Transform3D(-0.821918, 0, 0.569606, 0, 1, 0, -0.569606, 0, -0.821918, 0, 0, 0)
+light_color = Color(0.922838, 0.794236, 0.724639, 1)
+light_energy = 0.797802
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="moon_rotate_x" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0)
+
+[node name="Moon" type="DirectionalLight3D" parent="moon_rotate_x"]
+transform = Transform3D(0.821918, 0, -0.569606, 0, 1, 0, 0.569606, 0, 0.821918, 0, 0, 0)
+light_color = Color(0.996078, 0.831373, 0.513726, 1)
+light_energy = 0.0
+shadow_enabled = true
+shadow_opacity = 0.3

@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3qcxm3h3xcpa"]
+
+[ext_resource type="Material" uid="uid://y4a5o287bbxx" path="res://themes/White.tres" id="1_pqmjp"]
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="2_6j5dm"]
+[ext_resource type="PackedScene" uid="uid://b2owl01uydo7" path="res://scenes/Components/AnimatedButton.tscn" id="3_mkct0"]
+
+[node name="Panel" type="Panel"]
+material = ExtResource("1_pqmjp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -680.0
+offset_bottom = -395.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6j5dm")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" parent="GridContainer" instance=ExtResource("3_mkct0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="HideButton" parent="GridContainer" instance=ExtResource("3_mkct0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hide"
+
+[node name="MusicButton" parent="GridContainer" instance=ExtResource("3_mkct0")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Music"

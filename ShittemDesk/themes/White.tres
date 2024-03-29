@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://y4a5o287bbxx"]
+
+[ext_resource type="Shader" path="res://themes/White.gdshader" id="1_m0n5l"]
+[ext_resource type="Texture2D" uid="uid://46i72kvsne8e" path="res://themes/white.png" id="1_trlil"]
+
+[resource]
+shader = ExtResource("1_m0n5l")
+shader_parameter/opacity = 1.0
+shader_parameter/tex = ExtResource("1_trlil")

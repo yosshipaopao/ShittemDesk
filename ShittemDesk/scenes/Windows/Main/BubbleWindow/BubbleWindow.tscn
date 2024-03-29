@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpxixtcjhyknb"]
+
+[ext_resource type="PackedScene" uid="uid://b58q8ufk8l0of" path="res://scenes/Windows/Main/BubbleWindow/Base.tscn" id="1_5tb8g"]
+[ext_resource type="Script" path="res://scenes/Windows/Main/BubbleWindow/BubbleWindow.gd" id="1_8aqoj"]
+
+[node name="BubbleWindow" type="Window"]
+transparent_bg = true
+title = "BubbleWindow"
+initial_position = 1
+size = Vector2i(300, 200)
+visible = false
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+unfocusable = true
+mouse_passthrough = true
+script = ExtResource("1_8aqoj")
+
+[node name="Control" parent="." instance=ExtResource("1_5tb8g")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

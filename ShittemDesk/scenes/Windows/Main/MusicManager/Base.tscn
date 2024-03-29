@@ -1,0 +1,240 @@
+[gd_scene load_steps=9 format=3 uid="uid://beom2v1bxu5jq"]
+
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="1_d2n0w"]
+[ext_resource type="Script" path="res://scenes/Windows/Main/MusicManager/MusicManager.gd" id="1_xlw1c"]
+[ext_resource type="Shader" path="res://themes/White.gdshader" id="2_pvolf"]
+[ext_resource type="Texture2D" uid="uid://46i72kvsne8e" path="res://themes/white.png" id="3_rgxlc"]
+[ext_resource type="Script" path="res://scenes/Components/AnimatedButton.gd" id="4_82u77"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rid7k"]
+shader = ExtResource("2_pvolf")
+shader_parameter/opacity = 1.0
+shader_parameter/tex = ExtResource("3_rgxlc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7r2w"]
+bg_color = Color(0.6, 0.6, 0.6, 0.827451)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ua2pw"]
+bg_color = Color(0.67451, 0.713726, 1, 1)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_xlw1c")
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 2
+material = SubResource("ShaderMaterial_rid7k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d2n0w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_u7r2w")
+
+[node name="ClickHandler" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="HBoxContainer" parent="Panel/ClickHandler"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_bottom = 35.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="Panel/ClickHandler/Top"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ua2pw")
+
+[node name="Title" type="Label" parent="Panel/ClickHandler/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Music Title"
+vertical_alignment = 1
+clip_text = true
+
+[node name="Control" type="Control" parent="Panel/ClickHandler/Top"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Panel/ClickHandler/Top/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.5
+offset_right = 9.5
+offset_bottom = 23.0
+grow_horizontal = 2
+pivot_offset = Vector2(9.5, 11.5)
+text = "x"
+script = ExtResource("4_82u77")
+
+[node name="Control" type="HBoxContainer" parent="Panel/ClickHandler"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -35.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Artist" type="Label" parent="Panel/ClickHandler/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Artist"
+vertical_alignment = 1
+clip_text = true
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/ClickHandler/Control"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PlayButton" type="Button" parent="Panel/ClickHandler/Control/Buttons"]
+layout_mode = 2
+text = "▶"
+script = ExtResource("4_82u77")
+
+[node name="HSlider" type="HSlider" parent="Panel/ClickHandler"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_d2n0w")
+min_value = 10.0
+max_value = 200.0
+value = 100.0
+
+[node name="TopHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+
+[node name="LeftHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="RightHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="BottomHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[node name="TopLeftHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 5.0
+offset_bottom = 5.0
+mouse_default_cursor_shape = 12
+
+[node name="BottomRightHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+
+[node name="TopRightHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_right = -5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+
+[node name="BottomLeftHandler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_right = 5.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[connection signal="gui_input" from="Panel/ClickHandler" to="." method="_on_click_handler_gui_input"]
+[connection signal="pressed" from="Panel/ClickHandler/Top/Control/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/ClickHandler/Control/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="drag_ended" from="Panel/ClickHandler/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_started" from="Panel/ClickHandler/HSlider" to="." method="_on_h_slider_drag_started"]
+[connection signal="gui_input" from="Panel/ClickHandler/HSlider" to="." method="_on_h_slider_gui_input"]
+[connection signal="gui_input" from="TopHandler" to="." method="_on_top_handler_gui_input"]
+[connection signal="gui_input" from="LeftHandler" to="." method="_on_left_handler_gui_input"]
+[connection signal="gui_input" from="RightHandler" to="." method="_on_right_handler_gui_input"]
+[connection signal="gui_input" from="BottomHandler" to="." method="_on_bottom_handler_gui_input"]
+[connection signal="gui_input" from="TopLeftHandler" to="." method="_on_top_left_handler_gui_input"]
+[connection signal="gui_input" from="BottomRightHandler" to="." method="_on_bottom_right_handler_gui_input"]
+[connection signal="gui_input" from="TopRightHandler" to="." method="_on_top_right_handler_gui_input"]
+[connection signal="gui_input" from="BottomLeftHandler" to="." method="_on_bottom_left_handler_gui_input"]

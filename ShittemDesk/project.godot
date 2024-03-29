@@ -1,0 +1,113 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ShittemDesk"
+config/description=" デスクトップ上や壁紙にブルーアーカイブのキャラクターを表示させることのできるWindows用アシスタントアプリ "
+config/version="1.0.0"
+run/main_scene="res://scenes/Windows/SettingsWindow/Base.tscn"
+config/use_custom_user_dir=true
+config/auto_accept_quit=false
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+run/max_fps=60
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
+boot_splash/image="res://themes/StartupLogo.png"
+boot_splash/fullsize=false
+config/icon="res://Icon.png"
+config/windows_native_icon="res://Icon.ico"
+
+[autoload]
+
+Config="*res://scenes/Singletons/Config/Config.gd"
+GlobalMediaSession="*res://scenes/Singletons/MediaSession/MediaSession.tscn"
+WallpaperWindow="*res://scenes/Windows/Wallpaper/WallpaperWindow.tscn"
+AronaWindow="*res://scenes/Windows/Main/ARONA/ARONA_Window.tscn"
+PranaWindow="*res://scenes/Windows/Main/PRANA/PRANA_window.tscn"
+TrayIcon="*res://scenes/Singletons/CS/TrayIcon.cs"
+WindowManager="*res://scenes/Singletons/CS/WindowManager.cs"
+TimeManager="*res://scenes/Singletons/TimeManager/TimeManager.tscn"
+BubbleWindow="*res://scenes/Windows/Main/BubbleWindow/BubbleWindow.tscn"
+MusicManager="*res://scenes/Windows/Main/MusicManager/MusicManagerWindow.tscn"
+DiscordRPC="*res://scenes/Singletons/DiscordRPC/DiscordRPC.tscn"
+
+[debug]
+
+gdscript/warnings/integer_division=0
+
+[display]
+
+window/size/viewport_width=200
+window/size/viewport_height=300
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="ShittemDesk"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-sdk-gd/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://assets/": "orange",
+"res://scenes/": "green",
+"res://scenes/Windows/": "pink",
+"res://scenes/Windows/Main/BubbleWindow/": "teal",
+"res://scenes/Windows/Main/MusicManager/": "orange",
+"res://scenes/Windows/SettingsWindow/": "blue",
+"res://scenes/Windows/Wallpaper/": "yellow",
+"res://shaders/": "purple",
+"res://themes/": "pink"
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/translate/Translate.en.translation", "res://assets/translate/Translate.ja.translation")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+viewport/transparent_background=true
+
+[shader_globals]
+
+diffuse_curve={
+"type": "sampler2D",
+"value": ""
+}
+fresnel_smoothness={
+"type": "float",
+"value": 0.05
+}
+specular_smoothness={
+"type": "float",
+"value": 0.05
+}
+outline_width={
+"type": "float",
+"value": 4.0
+}
+outline_color={
+"type": "color",
+"value": Color(0, 0, 0, 1)
+}

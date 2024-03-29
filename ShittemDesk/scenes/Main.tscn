@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfqcv8a1ba8ug"]
+
+[ext_resource type="PackedScene" uid="uid://dkkyvxutp4x5t" path="res://scenes/Windows/SettingsWindow/Base.tscn" id="5_o3gts"]
+
+[node name="ShittemChest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsWindow" parent="." instance=ExtResource("5_o3gts")]
+layout_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3

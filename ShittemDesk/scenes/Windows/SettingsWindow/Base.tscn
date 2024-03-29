@@ -1,0 +1,462 @@
+[gd_scene load_steps=42 format=3 uid="uid://dkkyvxutp4x5t"]
+
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="1_c46wn"]
+[ext_resource type="Texture2D" uid="uid://4wifhiyifv6x" path="res://themes/white_bg.png" id="2_15glt"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/Base.gd" id="2_65aln"]
+[ext_resource type="Theme" uid="uid://dddjfm3e23ruy" path="res://themes/SettingsWindow.tres" id="3_dq23p"]
+[ext_resource type="Texture2D" uid="uid://dh443vsywa3pn" path="res://themes/white_title_bar.png" id="3_qsbac"]
+[ext_resource type="PackedScene" uid="uid://cumy5ev46sfvq" path="res://scenes/Windows/SettingsWindow/General/General.tscn" id="6_pcedy"]
+[ext_resource type="PackedScene" uid="uid://dmtahih07i0n0" path="res://scenes/Windows/SettingsWindow/WallPaper/Wallpaper.tscn" id="7_4b0hg"]
+[ext_resource type="PackedScene" uid="uid://d3p3ins03308i" path="res://scenes/Windows/SettingsWindow/PRANA/PRANA.tscn" id="8_oievi"]
+[ext_resource type="PackedScene" uid="uid://cq2pkdvefd1ec" path="res://scenes/Windows/SettingsWindow/ARONA/ARONA.tscn" id="8_sjdyp"]
+[ext_resource type="Texture2D" uid="uid://dkemnhl24fdk8" path="res://themes/close_button.png" id="10_nyfi8"]
+
+[sub_resource type="Shader" id="Shader_l3aof"]
+code = "shader_type canvas_item;
+uniform sampler2D tex;
+
+void fragment() {
+    COLOR = texture(tex, UV);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36kx5"]
+shader = SubResource("Shader_l3aof")
+shader_parameter/tex = ExtResource("2_15glt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt8vt"]
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe6jv"]
+draw_center = false
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uev2t"]
+bg_color = Color(0.972549, 0.976471, 0.984314, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5mfl"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ub750"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2gwam"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5yocu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_374a4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dl8ps"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ljd75"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0g4w4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wks3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5svsq"]
+bg_color = Color(0.972549, 0.976471, 0.984314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn57o"]
+bg_color = Color(0.666667, 0.882353, 0.964706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j8pv"]
+bg_color = Color(0.972549, 0.976471, 0.984314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4rwr"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.666667, 0.882353, 0.964706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snbiy"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.972549, 0.976471, 0.984314, 1)
+
+[sub_resource type="Theme" id="Theme_hoyjh"]
+CheckBox/colors/font_color = Color(0.180392, 0.294118, 0.45098, 1)
+CheckBox/colors/font_focus_color = Color(0.180392, 0.294118, 0.45098, 1)
+CheckBox/colors/font_hover_color = Color(0.180392, 0.294118, 0.45098, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0.180392, 0.294118, 0.45098, 1)
+CheckBox/colors/font_outline_color = Color(0.180392, 0.294118, 0.45098, 1)
+CheckBox/colors/font_pressed_color = Color(0.180392, 0.294118, 0.45098, 1)
+CheckBox/icons/checked = SubResource("CanvasTexture_ub750")
+CheckBox/icons/checked_disabled = SubResource("CanvasTexture_2gwam")
+CheckBox/icons/radio_checked = SubResource("CanvasTexture_5yocu")
+CheckBox/icons/radio_checked_disabled = SubResource("CanvasTexture_374a4")
+CheckBox/icons/radio_unchecked = SubResource("CanvasTexture_dl8ps")
+CheckBox/icons/radio_unchecked_disabled = SubResource("CanvasTexture_ljd75")
+CheckBox/icons/unchecked = SubResource("CanvasTexture_0g4w4")
+CheckBox/icons/unchecked_disabled = SubResource("CanvasTexture_wks3n")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_5svsq")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_rn57o")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_5j8pv")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_k4rwr")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_snbiy")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_s1ldm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_825ob"]
+bg_color = Color(0.666667, 0.882353, 0.964706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lovew"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_um8id"]
+shader = SubResource("Shader_l3aof")
+shader_parameter/tex = ExtResource("3_qsbac")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2kcv"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8oqd"]
+bg_color = Color(0.984314, 0.811765, 0.188235, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mxnb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny2sx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lhp0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5sq5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsboo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c46wn")
+script = ExtResource("2_65aln")
+
+[node name="base" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_36kx5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tt8vt")
+
+[node name="Control" type="Control" parent="base"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.01516)
+theme = ExtResource("3_dq23p")
+
+[node name="Border" type="Panel" parent="base/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fe6jv")
+
+[node name="Panel" type="Panel" parent="base/Control"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uev2t")
+
+[node name="SidePanel" type="Control" parent="base/Control/Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="base/Control/Panel/SidePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5mfl")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="base/Control/Panel/SidePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="base/Control/Panel/SidePanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_hoyjh")
+theme_override_constants/separation = 1
+
+[node name="General" type="CheckBox" parent="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+button_group = SubResource("ButtonGroup_s1ldm")
+text = "General"
+alignment = 1
+
+[node name="Wallpaper" type="CheckBox" parent="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_s1ldm")
+text = "Wallpaper"
+alignment = 1
+
+[node name="ARONA" type="CheckBox" parent="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_s1ldm")
+text = "ARONA"
+alignment = 1
+
+[node name="PRANA" type="CheckBox" parent="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_s1ldm")
+text = "PRANA"
+alignment = 1
+
+[node name="Panel" type="Panel" parent="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_825ob")
+
+[node name="Main" type="Control" parent="base/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="base/Control/Panel/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="Panel" parent="base/Control/Panel/Main/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lovew")
+
+[node name="Control" type="Control" parent="base/Control/Panel/Main/Control/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="General" parent="base/Control/Panel/Main/Control/Content/Control" instance=ExtResource("6_pcedy")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Wallpaper" parent="base/Control/Panel/Main/Control/Content/Control" instance=ExtResource("7_4b0hg")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="ARONA" parent="base/Control/Panel/Main/Control/Content/Control" instance=ExtResource("8_sjdyp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="PRANA" parent="base/Control/Panel/Main/Control/Content/Control" instance=ExtResource("8_oievi")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="title_bar" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_um8id")
+layout_mode = 2
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_b2kcv")
+
+[node name="under_bar" type="Panel" parent="title_bar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -5.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j8oqd")
+
+[node name="Title" type="Label" parent="title_bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="CloseButton" type="Button" parent="title_bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -12.0
+offset_right = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5mxnb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ny2sx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lhp0l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y5sq5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qsboo")
+icon = ExtResource("10_nyfi8")
+
+[node name="TopHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+
+[node name="BottomHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[node name="LeftHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="RightHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="TopLeftHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 10.0
+offset_bottom = 10.0
+mouse_default_cursor_shape = 12
+
+[node name="TopRightHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+
+[node name="BottomLeftHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 10.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[node name="BottomRightHandler" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+
+[connection signal="toggled" from="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer/General" to="." method="_on_general_toggled"]
+[connection signal="toggled" from="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer/Wallpaper" to="." method="_on_wallpaper_toggled"]
+[connection signal="toggled" from="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer/ARONA" to="." method="_on_arona_toggled"]
+[connection signal="toggled" from="base/Control/Panel/SidePanel/ScrollContainer/VBoxContainer/PRANA" to="." method="_on_prana_toggled"]
+[connection signal="gui_input" from="title_bar" to="." method="_on_title_bar_gui_input"]
+[connection signal="pressed" from="title_bar/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="gui_input" from="TopHandler" to="." method="_on_top_handler_gui_input"]
+[connection signal="gui_input" from="BottomHandler" to="." method="_on_bottom_handler_gui_input"]
+[connection signal="gui_input" from="LeftHandler" to="." method="_on_left_handler_gui_input"]
+[connection signal="gui_input" from="RightHandler" to="." method="_on_right_handler_gui_input"]
+[connection signal="gui_input" from="TopLeftHandler" to="." method="_on_top_left_handler_gui_input"]
+[connection signal="gui_input" from="TopRightHandler" to="." method="_on_top_right_handler_gui_input"]
+[connection signal="gui_input" from="BottomLeftHandler" to="." method="_on_bottom_left_handler_gui_input"]
+[connection signal="gui_input" from="BottomRightHandler" to="." method="_on_bottom_right_handler_gui_input"]

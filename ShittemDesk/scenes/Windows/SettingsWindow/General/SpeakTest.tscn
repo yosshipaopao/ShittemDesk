@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://cil7k0ksfkg4x"]
+
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="1_27yww"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/SpeakTest.gd" id="1_oahu1"]
+[ext_resource type="Script" path="res://scenes/Components/AnimatedButton.gd" id="3_t8gjf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pf81"]
+bg_color = Color(0.67451, 0.713726, 1, 1)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6i7l"]
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[node name="SpeakTest" type="Panel"]
+custom_minimum_size = Vector2(0, 80)
+script = ExtResource("1_oahu1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = -20.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TItleBar" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="Control/TItleBar"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8pf81")
+
+[node name="Label" type="Label" parent="Control/TItleBar"]
+layout_mode = 2
+text = "SpeakTest"
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6i7l")
+
+[node name="Inputs" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="LineEdit" type="LineEdit" parent="Control/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "input some"
+
+[node name="Button" type="Button" parent="Control/Inputs"]
+layout_mode = 2
+theme = ExtResource("1_27yww")
+text = "Speak"
+script = ExtResource("3_t8gjf")
+
+[connection signal="pressed" from="Control/Inputs/Button" to="." method="_on_speak_button_pressed"]

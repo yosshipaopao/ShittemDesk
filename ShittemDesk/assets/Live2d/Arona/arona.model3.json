@@ -1,0 +1,57 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Arona.moc3",
+		"Textures": [
+			"Arona.1024/texture_00.png"
+		],
+		"Physics": "Arona.physics3.json",
+		"DisplayInfo": "Arona.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "Face00",
+				"File": "Expressions/Face00.exp3.json"
+			},
+			{
+				"Name": "Face01",
+				"File": "Expressions/Face01.exp3.json"
+			},
+			{
+				"Name": "Face02",
+				"File": "Expressions/Face02.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": [
+				"ParamMouthForm",
+				"ParamMouthOpenY"
+			]
+		}
+	],
+	"HitAreas": [
+		{
+			"Id": "HitArea",
+			"Name": ""
+		},
+		{
+			"Id": "HitArea2",
+			"Name": ""
+		},
+		{
+			"Id": "HitArea3",
+			"Name": ""
+		}
+	]
+}

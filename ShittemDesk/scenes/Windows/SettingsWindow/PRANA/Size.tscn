@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgal2b7ptc65v"]
+
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/PRANA/Size.gd" id="1_i4yc4"]
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="2_pfhop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by7x1"]
+bg_color = Color(0.67451, 0.713726, 1, 1)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31c28"]
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[node name="SIZE" type="Panel"]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i4yc4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="TItleBar" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TItleBar"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_by7x1")
+
+[node name="Label" type="Label" parent="VBoxContainer/TItleBar"]
+layout_mode = 2
+text = "SIZE"
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_31c28")
+
+[node name="Inputs" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Inputs"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_pfhop")
+min_value = 30.0
+max_value = 200.0
+value = 100.0
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/Inputs"]
+layout_mode = 2
+min_value = 30.0
+max_value = 200.0
+value = 100.0
+
+[connection signal="value_changed" from="VBoxContainer/Inputs/HSlider" to="." method="_on_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Inputs/SpinBox" to="." method="_on_value_changed"]

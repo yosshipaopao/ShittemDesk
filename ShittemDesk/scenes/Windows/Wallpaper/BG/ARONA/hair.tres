@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dlxekyp1fefuf"]
+
+[ext_resource type="Shader" path="res://shaders/cel-shader/cel-shader-base.gdshader" id="1_2noxq"]
+[ext_resource type="Texture2D" uid="uid://6v2qwq726qlp" path="res://assets/models/charactor/ARONA_tex_hair.png" id="2_5tclr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2noxq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("2_5tclr")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

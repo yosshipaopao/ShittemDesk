@@ -1,0 +1,46 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "つままれArona.moc3",
+		"Textures": [
+			"つままれArona.1024/texture_00.png",
+			"つままれArona.1024/texture_01.png"
+		],
+		"Physics": "つままれArona.physics3.json",
+		"DisplayInfo": "つままれArona.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "Face00",
+				"File": "Expressions/Face00.exp3.json"
+			},
+			{
+				"Name": "Face01",
+				"File": "Expressions/Face01.exp3.json"
+			},
+			{
+				"Name": "Face02",
+				"File": "Expressions/Face02.exp3.json"
+			},
+			{
+				"Name": "Face03",
+				"File": "Expressions/Face03.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

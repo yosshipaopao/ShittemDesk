@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce25ihene8v2x"]
+
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/TimeNotification/Item.gd" id="1_ntu1w"]
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="2_jh4ax"]
+[ext_resource type="Script" path="res://scenes/Components/AnimatedButton.gd" id="3_kujan"]
+
+[node name="Item" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ntu1w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Year" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 3000.0
+
+[node name="Month" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 12.0
+
+[node name="Date" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 31.0
+
+[node name="Hour" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 23.0
+
+[node name="Minute" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 59.0
+
+[node name="Second" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+min_value = -1.0
+max_value = 59.0
+
+[node name="AnimatedButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jh4ax")
+text = "Delete"
+script = ExtResource("3_kujan")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Serif" type="LineEdit" parent="Control"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_right = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "serif"
+
+[connection signal="value_changed" from="HBoxContainer/Year" to="." method="_on_year_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Month" to="." method="_on_month_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Date" to="." method="_on_date_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Hour" to="." method="_on_hour_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Minute" to="." method="_on_minute_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Second" to="." method="_on_second_value_changed"]
+[connection signal="pressed" from="HBoxContainer/AnimatedButton" to="." method="_on_animated_button_pressed"]
+[connection signal="text_changed" from="Control/Serif" to="." method="_on_serif_text_changed"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://cumy5ev46sfvq"]
+
+[ext_resource type="Theme" uid="uid://dddjfm3e23ruy" path="res://themes/SettingsWindow.tres" id="1_2es3o"]
+[ext_resource type="PackedScene" uid="uid://dwnlgkifa4wyt" path="res://scenes/Windows/SettingsWindow/General/FPS.tscn" id="3_bm3wb"]
+[ext_resource type="PackedScene" uid="uid://dwg2la4emraqf" path="res://scenes/Windows/SettingsWindow/General/Discord.tscn" id="4_28jc2"]
+[ext_resource type="PackedScene" uid="uid://cil7k0ksfkg4x" path="res://scenes/Windows/SettingsWindow/General/SpeakTest.tscn" id="5_4qul6"]
+[ext_resource type="PackedScene" uid="uid://boei383q6gk7c" path="res://scenes/Windows/SettingsWindow/General/TimeNotification/time_notification.tscn" id="5_th7o5"]
+[ext_resource type="PackedScene" uid="uid://cf3gr5njtdk60" path="res://scenes/Windows/SettingsWindow/General/startup.tscn" id="6_0glrh"]
+[ext_resource type="PackedScene" uid="uid://md2qvi1iifie" path="res://scenes/Windows/SettingsWindow/General/README/readme.tscn" id="6_1uuts"]
+[ext_resource type="PackedScene" uid="uid://ccogu88coytl7" path="res://scenes/Windows/SettingsWindow/General/reset.tscn" id="8_piix1"]
+
+[node name="General" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_2es3o")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FPS" parent="VBoxContainer" instance=ExtResource("3_bm3wb")]
+layout_mode = 2
+
+[node name="Discord" parent="VBoxContainer" instance=ExtResource("4_28jc2")]
+layout_mode = 2
+
+[node name="SpeakTest" parent="VBoxContainer" instance=ExtResource("5_4qul6")]
+layout_mode = 2
+
+[node name="TimeNotification" parent="VBoxContainer" instance=ExtResource("5_th7o5")]
+layout_mode = 2
+
+[node name="Startup" parent="VBoxContainer" instance=ExtResource("6_0glrh")]
+layout_mode = 2
+
+[node name="README" parent="VBoxContainer" instance=ExtResource("6_1uuts")]
+layout_mode = 2
+
+[node name="RESET" parent="VBoxContainer" instance=ExtResource("8_piix1")]
+layout_mode = 2

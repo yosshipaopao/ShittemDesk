@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwhjc7550ehcp"]
+
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="1_aw5xf"]
+[ext_resource type="Script" path="res://scenes/Windows/Main/ContextMenu/ContextMenu.gd" id="2_s5h30"]
+[ext_resource type="Material" uid="uid://y4a5o287bbxx" path="res://themes/White.tres" id="2_w6cxp"]
+[ext_resource type="PackedScene" uid="uid://b2owl01uydo7" path="res://scenes/Components/AnimatedButton.tscn" id="4_uiea6"]
+
+[node name="ContextMenu" type="Window"]
+transparent_bg = true
+title = "ContextMenu"
+size = Vector2i(120, 105)
+wrap_controls = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+popup_window = true
+theme = ExtResource("1_aw5xf")
+script = ExtResource("2_s5h30")
+
+[node name="Panel" type="Panel" parent="."]
+material = ExtResource("2_w6cxp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_aw5xf")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" parent="Panel/GridContainer" instance=ExtResource("4_uiea6")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="HideButton" parent="Panel/GridContainer" instance=ExtResource("4_uiea6")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hide"
+
+[node name="MusicButton" parent="Panel/GridContainer" instance=ExtResource("4_uiea6")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Music"
+
+[connection signal="pressed" from="Panel/GridContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/HideButton" to="." method="_on_hide_button_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/MusicButton" to="." method="_on_music_button_pressed"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt0e746optg5s"]
+
+[ext_resource type="Script" path="res://scenes/Windows/Main/ARONA/ARONA_Window.gd" id="1_g217r"]
+[ext_resource type="PackedScene" uid="uid://c05y08n0thego" path="res://scenes/Windows/Main/ARONA/Base.tscn" id="2_40dt1"]
+
+[node name="ARONA_WINDOW" type="Window"]
+transparent_bg = true
+title = "ARONA"
+visible = false
+wrap_controls = true
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+unfocusable = true
+script = ExtResource("1_g217r")
+
+[node name="Base" parent="." instance=ExtResource("2_40dt1")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

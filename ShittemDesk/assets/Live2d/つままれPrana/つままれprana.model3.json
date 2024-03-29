@@ -1,0 +1,49 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "つままれPrana.moc3",
+		"Textures": [
+			"つままれPrana.1024/texture_00.png"
+		],
+		"Physics": "つままれPrana.physics3.json",
+		"DisplayInfo": "つままれPrana.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "Face00",
+				"File": "expressions/Face00.exp3.json"
+			},
+			{
+				"Name": "Face01",
+				"File": "expressions/Face01.exp3.json"
+			},
+			{
+				"Name": "Face02",
+				"File": "expressions/Face02.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": [
+				"ParamMouthForm",
+				"ParamMouthOpenY"
+			]
+		}
+	],
+	"HitAreas": [
+		{
+			"Id": "HitArea",
+			"Name": ""
+		}
+	]
+}

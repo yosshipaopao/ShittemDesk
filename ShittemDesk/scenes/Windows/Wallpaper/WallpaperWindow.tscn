@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://smranskwvka6"]
+
+[ext_resource type="Script" path="res://scenes/Windows/Wallpaper/WallpaperWindow.cs" id="1_11yba"]
+[ext_resource type="PackedScene" uid="uid://bfhkinoc0dyyl" path="res://scenes/Windows/Wallpaper/BG/Wallpaper.tscn" id="2_wxtbk"]
+
+[node name="WallpaperWindow" type="Window"]
+mode = 3
+title = "WallPaper"
+size = Vector2i(1920, 1080)
+visible = false
+unresizable = true
+borderless = true
+unfocusable = true
+script = ExtResource("1_11yba")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Control" parent="SubViewportContainer" instance=ExtResource("2_wxtbk")]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0

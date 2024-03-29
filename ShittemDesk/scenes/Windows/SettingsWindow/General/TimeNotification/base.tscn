@@ -1,0 +1,153 @@
+[gd_scene load_steps=13 format=3 uid="uid://74clv55iihpx"]
+
+[ext_resource type="Texture2D" uid="uid://4wifhiyifv6x" path="res://themes/white_bg.png" id="1_gxfha"]
+[ext_resource type="Theme" uid="uid://dddjfm3e23ruy" path="res://themes/SettingsWindow.tres" id="2_e6w3c"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/TimeNotification/Accordion.gd" id="3_tvobn"]
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="4_1nawr"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/TimeNotification/Items.gd" id="4_8mbaa"]
+[ext_resource type="Script" path="res://scenes/Components/AnimatedButton.gd" id="4_p357p"]
+
+[sub_resource type="Shader" id="Shader_uya08"]
+code = "shader_type canvas_item;
+uniform sampler2D tex;
+
+void fragment() {
+    COLOR = texture(tex, UV);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_647yx"]
+shader = SubResource("Shader_uya08")
+shader_parameter/tex = ExtResource("1_gxfha")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj5yr"]
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp6ud"]
+draw_center = false
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7qtp"]
+bg_color = Color(0.972549, 0.976471, 0.984314, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kw5f0"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.937255, 0.866667, 0.878431, 1)
+
+[node name="base" type="Panel"]
+material = SubResource("ShaderMaterial_647yx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lj5yr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.01516)
+theme = ExtResource("2_e6w3c")
+
+[node name="Border" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tp6ud")
+
+[node name="Content" type="Panel" parent="Control"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s7qtp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Content/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Accordion" type="VBoxContainer" parent="Control/Content/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("3_tvobn")
+
+[node name="Header" type="Button" parent="Control/Content/ScrollContainer/VBoxContainer/Accordion"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "SETTING_METHOD"
+
+[node name="Content" type="Label" parent="Control/Content/ScrollContainer/VBoxContainer/Accordion"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kw5f0")
+text = "TIME_NOTIFICATION_SETTING_METOD"
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Content/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_8mbaa")
+
+[node name="Control" type="Control" parent="Control/Content/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="AnimatedButton" type="Button" parent="Control/Content/ScrollContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(22.5, 20)
+theme = ExtResource("4_1nawr")
+text = "ADD"
+script = ExtResource("4_p357p")
+
+[connection signal="pressed" from="Control/Content/ScrollContainer/VBoxContainer/Accordion/Header" to="Control/Content/ScrollContainer/VBoxContainer/Accordion" method="_on_header_pressed"]
+[connection signal="gui_input" from="Control/Content/ScrollContainer/VBoxContainer/Accordion/Content" to="Control/Content/ScrollContainer/VBoxContainer/Accordion" method="_on_content_gui_input"]
+[connection signal="pressed" from="Control/Content/ScrollContainer/VBoxContainer/Control/AnimatedButton" to="Control/Content/ScrollContainer/VBoxContainer/VBoxContainer" method="_on_animated_button_pressed"]

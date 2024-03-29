@@ -1,0 +1,203 @@
+[gd_scene load_steps=15 format=3 uid="uid://bftxor2vuo6jf"]
+
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/TimeNotification/detail_settings_window.gd" id="1_551w5"]
+[ext_resource type="PackedScene" uid="uid://74clv55iihpx" path="res://scenes/Windows/SettingsWindow/General/TimeNotification/base.tscn" id="1_icpd5"]
+[ext_resource type="Texture2D" uid="uid://dh443vsywa3pn" path="res://themes/white_title_bar.png" id="3_y5v2i"]
+[ext_resource type="Texture2D" uid="uid://dkemnhl24fdk8" path="res://themes/close_button.png" id="4_5ste3"]
+
+[sub_resource type="Shader" id="Shader_l3aof"]
+code = "shader_type canvas_item;
+uniform sampler2D tex;
+
+void fragment() {
+    COLOR = texture(tex, UV);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dq0df"]
+shader = SubResource("Shader_l3aof")
+shader_parameter/tex = ExtResource("3_y5v2i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jeywk"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1hyy"]
+bg_color = Color(0.984314, 0.811765, 0.188235, 1)
+
+[sub_resource type="Theme" id="Theme_7ckpn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rryvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yt3y8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdkfx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ne8fh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4h3n"]
+
+[node name="DetailSettingsWindow" type="Window"]
+transparent_bg = true
+title = "TimeNotification"
+initial_position = 1
+size = Vector2i(500, 400)
+borderless = true
+always_on_top = true
+transparent = true
+popup_window = true
+min_size = Vector2i(500, 400)
+script = ExtResource("1_551w5")
+
+[node name="title_bar" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_dq0df")
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jeywk")
+
+[node name="under_bar" type="Panel" parent="title_bar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -5.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w1hyy")
+
+[node name="Title" type="Label" parent="title_bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TIME_NOTIFICATION"
+
+[node name="CloseButton" type="Button" parent="title_bar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -12.0
+offset_right = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_7ckpn")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rryvf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yt3y8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vdkfx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ne8fh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4h3n")
+icon = ExtResource("4_5ste3")
+
+[node name="base" parent="." instance=ExtResource("1_icpd5")]
+offset_top = 30.0
+
+[node name="TopHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+
+[node name="BottomHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[node name="LeftHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="RightHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="TopLeftHandler" type="Control" parent="."]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 10.0
+offset_bottom = 10.0
+mouse_default_cursor_shape = 12
+
+[node name="TopRightHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+
+[node name="BottomLeftHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 10.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[node name="BottomRightHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+
+[connection signal="gui_input" from="title_bar" to="." method="_on_title_bar_gui_input"]
+[connection signal="pressed" from="title_bar/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="gui_input" from="TopHandler" to="." method="_on_top_handler_gui_input"]
+[connection signal="gui_input" from="BottomHandler" to="." method="_on_bottom_handler_gui_input"]
+[connection signal="gui_input" from="LeftHandler" to="." method="_on_left_handler_gui_input"]
+[connection signal="gui_input" from="RightHandler" to="." method="_on_right_handler_gui_input"]
+[connection signal="gui_input" from="TopLeftHandler" to="." method="_on_top_left_handler_gui_input"]
+[connection signal="gui_input" from="TopRightHandler" to="." method="_on_top_right_handler_gui_input"]
+[connection signal="gui_input" from="BottomLeftHandler" to="." method="_on_bottom_left_handler_gui_input"]
+[connection signal="gui_input" from="BottomRightHandler" to="." method="_on_bottom_right_handler_gui_input"]

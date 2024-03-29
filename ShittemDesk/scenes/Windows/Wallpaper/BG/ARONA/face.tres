@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ch3grjs7jj3vv"]
+
+[ext_resource type="Shader" path="res://shaders/cel-shader/cel-shader-base.gdshader" id="1_h253n"]
+[ext_resource type="Texture2D" uid="uid://dcycs05r8ckjd" path="res://assets/models/charactor/ARONA_tex_face_parts.png" id="2_s8r3a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h253n")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/specular = Color(0.3, 0.3, 0.3, 0.5)
+shader_parameter/fresnel = Color(0.2, 0.2, 0.2, 0.3)
+shader_parameter/base_texture = ExtResource("2_s8r3a")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_offset = Vector2(0, 0)

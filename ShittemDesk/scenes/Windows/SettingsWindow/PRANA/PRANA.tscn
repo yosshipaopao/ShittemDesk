@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3p3ins03308i"]
+
+[ext_resource type="Theme" uid="uid://dddjfm3e23ruy" path="res://themes/SettingsWindow.tres" id="1_n1lvf"]
+[ext_resource type="PackedScene" uid="uid://cqmay0wfkqy0m" path="res://scenes/Windows/SettingsWindow/PRANA/Visible.tscn" id="2_hirxg"]
+[ext_resource type="PackedScene" uid="uid://cgal2b7ptc65v" path="res://scenes/Windows/SettingsWindow/PRANA/Size.tscn" id="3_pln6d"]
+[ext_resource type="PackedScene" uid="uid://jy5n47jp2div" path="res://scenes/Windows/SettingsWindow/PRANA/Position.tscn" id="4_omnww"]
+
+[node name="PRANA" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n1lvf")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Visible" parent="VBoxContainer" instance=ExtResource("2_hirxg")]
+layout_mode = 2
+
+[node name="SIZE" parent="VBoxContainer" instance=ExtResource("3_pln6d")]
+layout_mode = 2
+
+[node name="POSITION" parent="VBoxContainer" instance=ExtResource("4_omnww")]
+layout_mode = 2

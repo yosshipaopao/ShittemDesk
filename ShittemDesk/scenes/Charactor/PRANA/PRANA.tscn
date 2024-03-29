@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2ef6q1c06sdc"]
+
+[ext_resource type="Script" path="res://scenes/Charactor/PRANA/PRANA.gd" id="1_2llad"]
+[ext_resource type="PackedScene" uid="uid://ddr15gw75408t" path="res://scenes/Charactor/Model.tscn" id="2_cyta7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3bfqd"]
+viewport_path = NodePath("GDCubismUserModel")
+
+[node name="PRANA" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2llad")
+
+[node name="Model" parent="." instance=ExtResource("2_cyta7")]
+position = Vector2(117, 227)
+texture = SubResource("ViewportTexture_3bfqd")
+assets = "res://assets/Live2d/Prana/prana.model3.json"
+halo_idx = 0

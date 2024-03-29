@@ -1,0 +1,354 @@
+[gd_scene load_steps=14 format=3 uid="uid://bxvgu0rvyrmpy"]
+
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/README/base.gd" id="1_f7l86"]
+[ext_resource type="Script" path="res://scenes/Components/AnimatedButton.gd" id="1_tqggr"]
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="1_xlhmx"]
+[ext_resource type="LabelSettings" uid="uid://c1yjir8f3ubsi" path="res://scenes/Windows/SettingsWindow/General/README/BigLabel.tres" id="2_ps3ne"]
+[ext_resource type="LabelSettings" uid="uid://bx6iq17t4d3n7" path="res://scenes/Windows/SettingsWindow/General/README/Label.tres" id="3_qtwe0"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/README/Label16.gd" id="4_60x5x"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/README/Label18.gd" id="5_6jb25"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7qwq"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rh7yr"]
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_705kx"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7r5f1"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_onw7n"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q04vl"]
+bg_color = Color(0.878431, 0.701961, 0.894118, 1)
+
+[node name="Base" type="Control"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 300.0
+offset_bottom = 1700.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_f7l86")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7qwq")
+text = "本ソフトウェアは内部にLive2D社が公開しているLive2D® Cubism Native Framework を利用しています。
+該当ファイルについては以下の条項に従う必要があります。"
+label_settings = SubResource("LabelSettings_rh7yr")
+autowrap_mode = 1
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_705kx")
+
+[node name="Label" type="LinkButton" parent="ScrollContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -13.0
+offset_right = 167.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Live2D Proprietary Software 使用許諾契約書"
+uri = "https://www.live2d.jp/terms/live2d-proprietary-software-license-agreement/"
+
+[node name="PanelContinator" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7r5f1")
+
+[node name="Control" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/PanelContinator"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "README"
+label_settings = SubResource("LabelSettings_onw7n")
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "本ソフトウェアを実行したときに生じた損害については開発者は一切の責任を負いかねます。
+"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "設定の開き方"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "設定はアロナまたはプラナを右クリック、またはシステムトレイに格納されているアイコンから開くこともできます。本ソフトウェアを終了する際は、システムトレイのアイコンを右クリックしてください。"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Discordのプロファイル設定について"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Discord設定の”ON+”を選択するとDiscordのプロファイル欄に再生中のメディアのタイトルが表示されます。”事故”には十分気を付けてくださいね！"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "壁紙について"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "Windowsの設定でスライドショーをオンにしていると不具合が発生することがあります。"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "稀にソフトウェアの終了後に壁紙が残り続けることがあります。その場合はWindowsの設定から壁紙を設定しなおしてください。
+また、壁紙の設定が消えることがあるので、本ソフトウェアの実行前にバックアップをとっておくことをお勧めします。
+"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label14" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "自動起動の無効化について"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="Label16" type="Button" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "%appdata%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+clip_text = true
+script = ExtResource("4_60x5x")
+
+[node name="Label15" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "にある symlinkファイルを削除するか、
+タスクマネージャーの自動起動の設定から無効にしてください。"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label17" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "設定ファイルについて"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="Label18" type="Button" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "%appdata%\\ShittemDesk\\
+"
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+clip_text = true
+script = ExtResource("5_6jb25")
+
+[node name="Label19" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "にあります。
+なにか問題が生じた場合にはフォルダごと削除すると設定がリセットされます。"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "お問い合わせ"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="Label11" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "バグ報告や機能提案、質問等については"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Links" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control/Links"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "yosshipaopao"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="LinkButton" type="LinkButton" parent="ScrollContainer/VBoxContainer/PanelContinator/Control/Links"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.541176, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+text = "(twitter : @yosshipaopao)"
+uri = "https://twitter.com/yosshipaopao"
+
+[node name="Links2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control/Links2"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "餅"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="LinkButton" type="LinkButton" parent="ScrollContainer/VBoxContainer/PanelContinator/Control/Links2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.541176, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+text = "(twitter : @MotiTohu)"
+uri = "https://twitter.com/MotiTohu"
+
+[node name="Label12" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "までお願いします。"
+label_settings = ExtResource("3_qtwe0")
+autowrap_mode = 1
+
+[node name="Label13" type="Label" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+text = "ソースコード"
+label_settings = ExtResource("2_ps3ne")
+autowrap_mode = 1
+
+[node name="LinkButton" type="LinkButton" parent="ScrollContainer/VBoxContainer/PanelContinator/Control"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.541176, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+text = "github"
+uri = "https://github.com/yosshipaopao/ShittemDesk"
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q04vl")
+
+[node name="Control" type="HBoxContainer" parent="Control/Panel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = 8.0
+offset_right = 150.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Control/Panel/Control"]
+layout_mode = 2
+text = "AGREE"
+
+[node name="AnimatedButton" type="Button" parent="Control/Panel/Control"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_xlhmx")
+text = "CLOSE"
+script = ExtResource("1_tqggr")
+press_scale = 0.95
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/PanelContinator/Control/Label16" to="ScrollContainer/VBoxContainer/PanelContinator/Control/Label16" method="_on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/PanelContinator/Control/Label18" to="ScrollContainer/VBoxContainer/PanelContinator/Control/Label18" method="_on_pressed"]
+[connection signal="toggled" from="Control/Panel/Control/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Control/Panel/Control/AnimatedButton" to="." method="_on_animated_button_pressed"]

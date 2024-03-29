@@ -1,0 +1,26 @@
+{
+	"Type": "Live2D Expression",
+	"FadeInTime": 0,
+	"Parameters": [
+		{
+			"Id": "Param5",
+			"Value": 4,
+			"Blend": "Add"
+		},
+		{
+			"Id": "Param6",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

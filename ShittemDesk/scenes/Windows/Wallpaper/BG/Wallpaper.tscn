@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfhkinoc0dyyl"]
+
+[ext_resource type="Script" path="res://scenes/Windows/Wallpaper/BG/Wallpaper.gd" id="1_mtvqa"]
+[ext_resource type="PackedScene" uid="uid://rk6dprbnfwnf" path="res://assets/models/stage/desk.glb" id="2_q0svl"]
+[ext_resource type="PackedScene" uid="uid://bn2j734iwas3c" path="res://assets/models/stage/Chair.glb" id="3_b3pwb"]
+[ext_resource type="PackedScene" uid="uid://it0viwwmgg8i" path="res://scenes/Windows/Wallpaper/BG/WaterPlane.tscn" id="3_mtl4v"]
+[ext_resource type="PackedScene" uid="uid://bvqor3iylgp0i" path="res://assets/models/stage/Classroom.glb" id="4_wskew"]
+[ext_resource type="PackedScene" uid="uid://dky4hdfjhdhgx" path="res://scenes/Windows/Wallpaper/BG/World.tscn" id="5_3bhfy"]
+[ext_resource type="PackedScene" uid="uid://celr76uqgto7l" path="res://scenes/Windows/Wallpaper/BG/ARONA/ARONA.tscn" id="7_wh7dt"]
+
+[node name="Control" type="SubViewport"]
+size_2d_override_stretch = true
+script = ExtResource("1_mtvqa")
+
+[node name="Desk" parent="." instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.99861, 0, 0.052702, 0, 1, 0, -0.052702, 0, 0.99861, -1.89402, 0, -2.3289)
+
+[node name="Chair" parent="." instance=ExtResource("3_b3pwb")]
+transform = Transform3D(0.998356, 0, -0.0573201, 0, 1, 0, 0.0573201, 0, 0.998356, -2.07764, 0, -2.32076)
+
+[node name="Desk2" parent="." instance=ExtResource("2_q0svl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72099, 0.00788176, -0.749778)
+
+[node name="Chair2" parent="." instance=ExtResource("3_b3pwb")]
+transform = Transform3D(0.981856, 0, 0.189627, 0, 1, 0, -0.189627, 0, 0.981856, -1.7653, 0, -0.742968)
+
+[node name="Desk3" parent="." instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.991086, 0, 0.133225, 0, 1, 0, -0.133225, 0, 0.991086, -1.89391, 0, 0.778942)
+
+[node name="Chair3" parent="." instance=ExtResource("3_b3pwb")]
+transform = Transform3D(0.99306, 0.00461039, -0.11752, -0.00464256, 0.999989, 0, 0.117519, 0.000545594, 0.99307, -1.91241, 0, 0.785752)
+
+[node name="Desk4" parent="." instance=ExtResource("2_q0svl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.251082, 0, -0.972711)
+
+[node name="Chair4" parent="." instance=ExtResource("3_b3pwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.418071, 0, -0.9659)
+
+[node name="Desk5" parent="." instance=ExtResource("2_q0svl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386677, 0, 0.778942)
+
+[node name="Chair5" parent="." instance=ExtResource("3_b3pwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.430983, 0, 0.785752)
+
+[node name="Desk6" parent="." instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.985935, 0, -0.16713, 0, 1, 0, 0.16713, 0, 0.985935, 1.04495, 0, -1.9434)
+
+[node name="Chair6" parent="." instance=ExtResource("3_b3pwb")]
+transform = Transform3D(0.985935, 0, -0.16713, 0, 1, 0, 0.16713, 0, 0.985935, 1.09814, 0, -1.92441)
+
+[node name="Classroom" parent="." instance=ExtResource("4_wskew")]
+
+[node name="World" parent="." instance=ExtResource("5_3bhfy")]
+time = 22418.1
+max_sun_altitude = 50.0
+max_moon_altitude = 50.0
+
+[node name="Desks" type="Node3D" parent="."]
+
+[node name="Desk" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.917852, 0, -0.396924, 0, 1, 0, 0.396924, 0, 0.917852, 0.79792, -0.354298, -3.80966)
+
+[node name="Desk2" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.889881, -0.239581, -0.388217, 0.224922, 0.97079, -0.0835323, 0.39689, -0.0129849, 0.917774, 1.55128, 0.226563, -3.96604)
+
+[node name="Desk3" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(-0.00419748, 0.464891, -0.885358, -0.0780068, 0.882516, 0.463769, 0.996944, 0.0710107, 0.0325603, 0.876386, 0.332764, -5.37954)
+
+[node name="Desk4" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(-0.679665, 0.0569991, -0.731305, 0.128792, 0.990762, -0.042476, 0.722128, -0.123056, -0.680727, 0.468794, -0.142274, -5.16131)
+
+[node name="Desk5" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(-0.747855, -0.585875, 0.31219, -0.519225, 0.809236, 0.27485, -0.413664, 0.0434515, -0.909392, 1.50475, 0.186997, -4.80313)
+
+[node name="Desk6" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.720845, -0.289993, 0.629514, -0.0784981, 0.86826, 0.489861, -0.688637, -0.402529, 0.603116, 0.79792, 0.103031, -4.19902)
+
+[node name="Desk7" parent="Desks" instance=ExtResource("2_q0svl")]
+transform = Transform3D(0.0189014, 0.185153, -0.982528, -0.0757986, 0.980141, 0.183245, 0.996944, 0.0710107, 0.0325603, 1.6879, 0.778789, -4.11669)
+
+[node name="Chair" parent="Desks" instance=ExtResource("3_b3pwb")]
+transform = Transform3D(-0.325512, 0.867635, -0.375835, -0.935502, -0.237765, 0.261349, 0.137395, 0.436667, 0.88907, -0.0659541, -0.142168, -4.35675)
+
+[node name="Chair2" parent="Desks" instance=ExtResource("3_b3pwb")]
+transform = Transform3D(-0.645371, 0.242485, -0.72436, -0.46821, -0.874831, 0.124297, -0.603552, 0.41937, 0.678125, 0.561871, 1.00289, -4.59292)
+
+[node name="WaterPlane" parent="." instance=ExtResource("3_mtl4v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.05, -21.5073)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.866025, -0.0435779, 0.498098, 0, 0.996195, 0.0871557, -0.5, -0.0754791, 0.86273, 1.5, 1.3, 3)
+fov = 45.0
+far = 100.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+omni_range = 4096.0
+omni_attenuation = 1.56917
+
+[node name="ARONA" parent="." instance=ExtResource("7_wh7dt")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 1.1, 0, 2.3)

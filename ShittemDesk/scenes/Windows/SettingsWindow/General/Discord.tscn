@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwg2la4emraqf"]
+
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/Discord.gd" id="1_eiaet"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by7x1"]
+bg_color = Color(0.67451, 0.713726, 1, 1)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31c28"]
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7oiuk"]
+
+[node name="Discord" type="Panel"]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -454.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eiaet")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+
+[node name="TItleBar" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TItleBar"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_by7x1")
+
+[node name="Label" type="Label" parent="VBoxContainer/TItleBar"]
+layout_mode = 2
+text = "Discord"
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_31c28")
+
+[node name="Inputs" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+
+[node name="ON_PLUS" type="CheckBox" parent="VBoxContainer/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_group = SubResource("ButtonGroup_7oiuk")
+text = "ON+"
+
+[node name="ON" type="CheckBox" parent="VBoxContainer/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+button_group = SubResource("ButtonGroup_7oiuk")
+text = "ON"
+
+[node name="OFF" type="CheckBox" parent="VBoxContainer/Inputs"]
+layout_mode = 2
+size_flags_horizontal = 3
+button_group = SubResource("ButtonGroup_7oiuk")
+text = "OFF"
+
+[connection signal="pressed" from="VBoxContainer/Inputs/ON_PLUS" to="." method="_on_on_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Inputs/ON" to="." method="_on_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Inputs/OFF" to="." method="_on_off_pressed"]

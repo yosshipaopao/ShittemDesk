@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dejjenbvpee66"]
+
+[ext_resource type="Script" path="res://scenes/Charactor/ARONA/ARONA.gd" id="1_4xohy"]
+[ext_resource type="PackedScene" uid="uid://ddr15gw75408t" path="res://scenes/Charactor/Model.tscn" id="2_egbe0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_glamm"]
+viewport_path = NodePath("GDCubismUserModel")
+
+[node name="ARONA" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xohy")
+
+[node name="Model" parent="." instance=ExtResource("2_egbe0")]
+position = Vector2(85, 223)
+texture = SubResource("ViewportTexture_glamm")
+assets = "res://assets/Live2d/Arona/arona.model3.json"
+halo_idx = 0

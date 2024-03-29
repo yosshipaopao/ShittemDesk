@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://it0viwwmgg8i"]
+
+[ext_resource type="Shader" path="res://shaders/Water.gdshader" id="1_8qqdl"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4x0ld"]
+size = Vector2(50, 25)
+subdivide_width = 200
+subdivide_depth = 200
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0d4ab"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j80a2"]
+seamless = true
+as_normal_map = true
+bump_strength = 5.5
+noise = SubResource("FastNoiseLite_0d4ab")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eh4c3"]
+noise_type = 3
+seed = 10
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hvdqc"]
+seamless = true
+as_normal_map = true
+bump_strength = 10.0
+noise = SubResource("FastNoiseLite_eh4c3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sgo0r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pqm1r"]
+seamless = true
+noise = SubResource("FastNoiseLite_sgo0r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ul8e"]
+render_priority = 0
+shader = ExtResource("1_8qqdl")
+shader_parameter/base_color = Color(0.129412, 0.34902, 0.498039, 1)
+shader_parameter/fresnel_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+shader_parameter/metaric = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_direction = Vector2(4, 2)
+shader_parameter/wave_direction2 = Vector2(1, 2)
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 20.0
+shader_parameter/height_scale = 0.05
+shader_parameter/color_deep = Color(0, 0, 0, 0.756863)
+shader_parameter/color_shallow = Color(0.188235, 0.188235, 0.188235, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.2
+shader_parameter/near = 0.5
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_pqm1r")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_j80a2")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_hvdqc")
+
+[node name="WaterPlane" type="MeshInstance3D"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_4x0ld")
+surface_material_override/0 = SubResource("ShaderMaterial_7ul8e")

@@ -1,0 +1,36 @@
+key,en,ja
+Settings,Settings,設定
+General,General,一般
+Wallpaper,Wallpaper,壁紙
+ARONA,ARONA,アロナ
+PRANA,PRANA,プラナ
+FPS,Max FPS,最大FPS
+Discord,Discord RPC,Discordステータス
+SpeakTest,Talk Test,トークテスト
+Visible,Visible,表示
+SIZE,Size,表示サイズ
+POSITION,Position,表示位置
+DAY_SPEED,DaySpeed,時間の進み方
+UPDATE_SPEED,FPS,最大FPS
+Hide,Hide,非表示
+Music,Music,メディア
+TIME_NOTIFICATION,Time Signal,時報
+OPEN_DETAIL_WINDOW,Detail Settings,詳細設定
+SETTING_METHOD,How to set,設定方法
+ADD,Add,追加
+README,README,README
+OPEN,Open,開く
+ENABLE_STARTUP,Enable auto start,自動起動の有効化
+ENABLE,Enable,有効化
+AGREE,Agree,承諾
+CLOSE,Close,閉じる
+TIME_NOTIFICATION_SETTING_METOD,"From right to left: year, month, day, hour, minute, second, and all times when -1,
+All other times will be fired when they match.
+For example, if you want to fire at exactly 12:00 every day
+[-1,-1,-1,-1,12,0,0].
+You can also set a line at the bottom for that time.","右から順に年,月,日,時,分,秒となっていて-1の時すべて、
+それ以外の時はそれにマッチしたときに発火されます。
+例えば毎日12時ちょうどに発火させたいときは
+[-1,-1,-1,12,0,0]にするとできます。
+また、下にはその時のセリフを設定できます。"
+RESET,Reset,リセット
