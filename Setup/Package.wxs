@@ -1,0 +1,91 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+	 xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+	<Package
+        Name="ShittemDesk"
+        UpgradeCode="0FED8680-2F04-40AE-8C93-A38B9DAC7EF5"
+        Language="1041"
+        Manufacturer="yosshipaopao"
+        Version="1.0.1">
+
+		<MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A newer version is already installed."/>
+
+		<Media Id="1" Cabinet="app.cab" EmbedCab="yes" />
+		
+		<Feature Id="Complete" Level="1">
+			<ComponentRef Id="INSTALLFOLDER" />
+			<ComponentRef Id="SoftDirDesktop" />
+			<ComponentRef Id="SoftDirProgramMenu" />
+		</Feature>
+		
+		<Icon Id="appicon.ico" SourceFile="program/Icon.ico" />
+
+		<Property Id="AdvertisedProductIcon" Value="application.ico"/>
+
+		<StandardDirectory Id="ProgramFiles6432Folder">
+			<Directory Id="INSTALLFOLDER" Name="!(bind.Property.ProductName)">
+				<Component Id="INSTALLFOLDER" Guid="030B2670-E8EB-4898-8120-5F47CA4C9D57">
+					<File Id="ExeFile" Source="program/ShittemDesk.exe" Checksum="yes" />
+					<File Id="IcoFile" Source="program/Icon.ico" Checksum="yes" />
+					<File Id="winrt_DLL" Source="program/winrt.dll" Checksum="yes" />
+					<File Id="libgd_cubism_DLL" Source="program/libgd_cubism.windows.release.x86_64.dll" Checksum="yes" />
+					<File Id="discord_game_sdk_binding_DLL" Source="program/discord_game_sdk_binding.dll" Checksum="yes" />
+					<File Id="discord_game_sdk_DLL" Source="program/discord_game_sdk.dll" Checksum="yes" />
+					<RemoveFolder Id="INSTALLFOLDER" On="uninstall" />
+				</Component>
+			</Directory>
+		</StandardDirectory>
+
+		<StandardDirectory Id="DesktopFolder">
+			<Component Id="SoftDirDesktop" Guid="5737D02F-13B3-4199-AE88-D295429AAB99">
+				<RegistryValue Root='HKCU' Key='Software\Manufacturer\Product'
+                     Name='InstallFolder'
+                     Value='[INSTALLFOLDER]'
+                     Type='string'
+                     KeyPath='yes' />
+				<Shortcut Id="ExeFileDesk" Directory="DesktopFolder" Name="ShittemDesk" WorkingDirectory="INSTALLFOLDER" Target="[INSTALLFOLDER]\\ShittemDesk.exe" Icon="appicon.ico" />
+				<RemoveFolder Id="SoftDirDesktop" On="uninstall" />
+			</Component>
+		</StandardDirectory>
+
+		<StandardDirectory Id="ProgramMenuFolder">
+			<Component Id="SoftDirProgramMenu" Guid="EA9C227D-1F87-4EEB-923C-0ACCC5D94F15">
+				<RegistryValue Root='HKCU' Key='Software\Manufacturer\Product'
+                     Name='InstallFolder'
+                     Value='[INSTALLFOLDER]'
+                     Type='string'
+                     KeyPath='yes' />
+				<Shortcut Id="ExeFileMenu" Directory="ProgramMenuFolder" Name="ShittemDesk" WorkingDirectory="INSTALLFOLDER" Target="[INSTALLFOLDER]\\ShittemDesk.exe" Icon="appicon.ico" />
+				<RemoveFolder Id="SoftDirProgramMenu" On="uninstall" />
+			</Component>
+		</StandardDirectory>
+
+		<WixVariable Id="WixUIBannerBmp" Value="493x58.png" />
+		<WixVariable Id="WixUIDialogBmp" Value="493x312.png" />
+		<WixVariable Id="WixUIExclamationIco" Value="32x32.png" />
+		<WixVariable Id="WixUIInfoIco" Value="32x32.png" />
+		<WixVariable Id="WixUINewIco" Value="16x16.png" />
+		<WixVariable Id="WixUIUpIco" Value="16x16.png" />
+		
+		<UI Id="UI">
+			<ui:WixUI
+				Id="InstallDir_NoLicense"
+				InstallDirectory="INSTALLFOLDER"
+				/>
+			<Publish Dialog="ExitDialog"
+			   Control="Finish"
+			   Event="DoAction"
+			   Value="LaunchApplication"
+			   Condition="WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed"/>
+		</UI>
+		<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
+
+		<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="launch on exit"/>
+
+		<Property Id="WixShellExecTarget" Value="[#ExeFile]"/>
+
+		<CustomAction Id="LaunchApplication"
+			BinaryRef="Wix4UtilCA_$(sys.BUILDARCHSHORT)"
+			DllEntry="WixShellExec"
+			Impersonate="yes" />
+	</Package>
+</Wix>

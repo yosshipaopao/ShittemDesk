@@ -1,5 +1,6 @@
 .vs/
-
-export/*
+.wix/
+bin/*
+obj/
 program/*
 !program/Icon.ico

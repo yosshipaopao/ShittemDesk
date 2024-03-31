@@ -1,0 +1,18 @@
+﻿<Project Sdk="WixToolset.Sdk/4.0.5">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <BindFiles>false</BindFiles>
+    <Cultures>ja-JP</Cultures>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <OutputPath>bin</OutputPath>
+    <Cultures>ja-JP</Cultures>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputName>ShittemDesk_Setup_eng</OutputName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="4.0.5" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="4.0.5" />
+  </ItemGroup>
+</Project>
