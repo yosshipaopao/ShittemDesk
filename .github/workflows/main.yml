@@ -44,7 +44,7 @@ jobs:
 
       - uses: microsoft/setup-msbuild@v2
       
-      - uses: chickensoft-games/setup-godot@v1
+      - uses: chickensoft-games/setup-godot@v2
         name: 🤖 Setup Godot
         with:
           version: 4.2.1
