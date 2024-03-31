@@ -49,6 +49,7 @@ func emit_value_changed():
 	set(v):
 		if $HBoxContainer/Year.value != v:
 			$HBoxContainer/Year.value = v
+		else:
 			year=v
 			emit_value_changed()
 func _on_year_value_changed(value):
@@ -57,6 +58,7 @@ func _on_year_value_changed(value):
 	set(v):
 		if $HBoxContainer/Month.value != v:
 			$HBoxContainer/Month.value = v
+		else:
 			month=v
 			emit_value_changed()
 func _on_month_value_changed(value):
@@ -65,6 +67,7 @@ func _on_month_value_changed(value):
 	set(v):
 		if $HBoxContainer/Date.value != v:
 			$HBoxContainer/Date.value = v
+		else:
 			date = v
 			emit_value_changed()
 func _on_date_value_changed(value):
@@ -73,6 +76,7 @@ func _on_date_value_changed(value):
 	set(v):
 		if $HBoxContainer/Hour.value != v:
 			$HBoxContainer/Hour.value = v
+		else:
 			hour = v
 			emit_value_changed()
 func _on_hour_value_changed(value):
@@ -81,6 +85,7 @@ func _on_hour_value_changed(value):
 	set(v):
 		if $HBoxContainer/Minute.value != v:
 			$HBoxContainer/Minute.value = v
+		else:
 			minute=v
 			emit_value_changed()
 func _on_minute_value_changed(value):
@@ -89,6 +94,7 @@ func _on_minute_value_changed(value):
 	set(v):
 		if $HBoxContainer/Second.value != v:
 			$HBoxContainer/Second.value = v
+		else:
 			second=v
 			emit_value_changed()
 func _on_second_value_changed(value):
@@ -97,6 +103,7 @@ func _on_second_value_changed(value):
 	set(v):
 		if $Control/Serif.text!=v:
 			$Control/Serif.text = v
+		else:
 			selif = v
 			emit_value_changed()
 func _on_serif_text_changed(new_text):
