@@ -60,6 +60,14 @@ jobs:
       - name: move gd_cubism
         run: mv gd_cubism/demo/addons/gd_cubism/bin/* ShittemDesk/addons/gd_cubism/bin/
       
+      
+      - name: Cache Godot
+        id: cache-godot
+        uses: actions/cache@v4
+        with:
+          path: ShittemDesk/.godot
+          key: ${{ runner.os }}-godot
+
       - name: 📦 Restore Dependencies
         working-directory: ShittemDesk
         run: dotnet restore
