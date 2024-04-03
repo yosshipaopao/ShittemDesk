@@ -34,3 +34,9 @@ You can also set a line at the bottom for that time.","右から順に年,月,�
 [-1,-1,-1,12,0,0]にするとできます。
 また、下にはその時のセリフを設定できます。"
 RESET,Reset,リセット
+NEW_VERSION_DETECTED,Newer versions are available. Would you like to download it?,新しいバージョンがあります。ダウンロードしますか？
+DOWNLOAD,Download,ダウンロード
+NEVER,Never,表示しない
+CHECK_UPDATE,Check Update,更新をチェック
+CHECK_UPDATE_ON_START,Check Update On Start,起動時に更新をチェック
+CHECK,Check,チェック

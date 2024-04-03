@@ -4,10 +4,11 @@ const user := "user"
 const config_path := "user://config.cfg"
 
 @export var _configs : Dictionary = {
+	"AgreedToTermsOfUse" : false,
 	"General:FPS" : 60 ,
 	"General:Discord": 1,
 	"General:notify_time" : [],
-	"AgreedToTermsOfUse" : false,
+	"General:check_latest": true,
 	"ARONA:visible" : false ,
 	"ARONA:size" : 100 ,
 	"ARONA:position" : Vector2i.ZERO ,
