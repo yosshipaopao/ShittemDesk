@@ -1,5 +1,12 @@
 ![Logo_Big](/docs/logo/Logo_big.png)
 
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/yosshipaopao/ShittemDesk/total?style=for-the-badge&logo=github)](https://github.com/yosshipaopao/ShittemDesk/releases/latest/download/ShittemDesk_Setup.msi)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/yosshipaopao/ShittemDesk/main.yml?style=for-the-badge&logo=githubactions)](https://github.com/yosshipaopao/ShittemDesk/actions/workflows/main.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/yosshipaopao/ShittemDesk?style=for-the-badge&logo=github)](https://github.com/yosshipaopao/ShittemDesk/actions/workflows/main.yml)
+[![YouTube Video Views](https://img.shields.io/youtube/views/Omg8XGUvCjU?style=for-the-badge&logo=youtube)](https://youtu.be/Omg8XGUvCjU)
+[![nicocnicovideo](https://img.shields.io/badge/niconico-video?style=for-the-badge&logo=niconico)](https://www.nicovideo.jp/watch/sm43588425)
+
+
 # ShittemDesk
 
 デスクトップ上や壁紙にブルーアーカイブのキャラクターを表示させることのできるWindows用アシスタントアプリです。
