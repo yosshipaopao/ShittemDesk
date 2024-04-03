@@ -87,7 +87,9 @@ locale/translations=PackedStringArray("res://assets/translate/Translate.en.trans
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+anti_aliasing/quality/msaa_3d=3
 viewport/transparent_background=true
+anti_aliasing/quality/screen_space_aa=1
 
 [shader_globals]
 

@@ -51,7 +51,7 @@ transform = Transform3D(0.985935, 0, -0.16713, 0, 1, 0, 0.16713, 0, 0.985935, 1.
 [node name="Classroom" parent="." instance=ExtResource("4_wskew")]
 
 [node name="World" parent="." instance=ExtResource("5_3bhfy")]
-time = 22418.1
+time = 57553.5
 max_sun_altitude = 50.0
 max_moon_altitude = 50.0
 

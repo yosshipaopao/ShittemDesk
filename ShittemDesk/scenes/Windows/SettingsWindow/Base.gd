@@ -8,6 +8,7 @@ func _ready():
 	window.size = Vector2i(800,500)
 	window.min_size = Vector2i(500,200)
 	window.move_to_center()
+
 func _process(_delta):
 	if resizing[0] or resizing[1] or moving[0] or moving[1]:
 		var mouse_now := Vector2i(get_viewport().get_mouse_position())

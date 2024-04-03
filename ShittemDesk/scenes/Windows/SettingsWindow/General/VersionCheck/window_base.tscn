@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://dewdiavmai81e"]
+
+[ext_resource type="Theme" uid="uid://sbqvhaly02df" path="res://themes/Default.tres" id="1_jlsuq"]
+[ext_resource type="Texture2D" uid="uid://4wifhiyifv6x" path="res://themes/white_bg.png" id="2_pxyak"]
+[ext_resource type="Script" path="res://scenes/Components/AnimatedButton.gd" id="3_1qyh7"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/General/VersionCheck/window_base.gd" id="3_n3fic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68jyg"]
+texture = ExtResource("2_pxyak")
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jlsuq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_68jyg")
+script = ExtResource("3_n3fic")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NEW_VERSION_DETECTED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="AnimatedButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "DOWNLOAD"
+script = ExtResource("3_1qyh7")
+
+[node name="CheckBox" type="CheckBox" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "NEVER"
+
+[node name="AnimatedButton3" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "CLOSE"
+script = ExtResource("3_1qyh7")
+
+[connection signal="pressed" from="Control/HBoxContainer/AnimatedButton" to="." method="_on_animated_button_pressed"]
+[connection signal="toggled" from="Control/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="Control/HBoxContainer/AnimatedButton3" to="." method="_on_animated_button_3_pressed"]
