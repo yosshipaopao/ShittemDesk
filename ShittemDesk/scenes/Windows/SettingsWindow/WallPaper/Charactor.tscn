@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuw0eo7lthuhi"]
+[gd_scene load_steps=5 format=3 uid="uid://cu06eche2udh1"]
 
-[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/WallPaper/Visible.gd" id="1_laqnp"]
+[ext_resource type="Script" path="res://scenes/Windows/SettingsWindow/WallPaper/Charactor.gd" id="1_v1axh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnwy6"]
 bg_color = Color(0.67451, 0.713726, 1, 1)
@@ -12,12 +12,12 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 expand_margin_left = 10.0
 expand_margin_right = 10.0
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_twd1p"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_8fl3b"]
 allow_unpress = true
 
-[node name="Visible" type="Panel"]
+[node name="Charactor" type="Panel"]
 custom_minimum_size = Vector2(0, 80)
-script = ExtResource("1_laqnp")
+script = ExtResource("1_v1axh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -41,7 +41,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jnwy6")
 
 [node name="Label" type="Label" parent="VBoxContainer/TItleBar"]
 layout_mode = 2
-text = "Visible"
+text = "Charactor"
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
@@ -56,14 +56,14 @@ layout_mode = 2
 [node name="ON" type="CheckBox" parent="VBoxContainer/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 3
-button_group = SubResource("ButtonGroup_twd1p")
+button_group = SubResource("ButtonGroup_8fl3b")
 text = "ON"
 
 [node name="OFF" type="CheckBox" parent="VBoxContainer/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 3
 button_pressed = true
-button_group = SubResource("ButtonGroup_twd1p")
+button_group = SubResource("ButtonGroup_8fl3b")
 text = "OFF"
 
-[connection signal="toggled" from="VBoxContainer/Inputs/ON" to="." method="_on_toggled"]
+[connection signal="toggled" from="VBoxContainer/Inputs/ON" to="." method="_on_on_toggled"]
