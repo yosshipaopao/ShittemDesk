@@ -16,6 +16,7 @@ const config_path := "user://config.cfg"
 	"PRANA:size" : 100 ,
 	"PRANA:position" : Vector2i.ZERO ,
 	"Wallpaper:visible" : false,
+	"Wallpaper:charactor" : true,
 	"Wallpaper:day_speed" : 1 ,
 	"Wallpaper:update_speed" : 4,
 }

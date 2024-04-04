@@ -30,9 +30,10 @@ func play(a:ANIMATIONS):
 func _ready():
 	Config.configs["Wallpaper:visible"].on_change(func(_v):check_show())
 	Config.configs["ARONA:visible"].on_change(func(_v):check_show())
+	Config.configs["Wallpaper:charactor"].on_change(func(_v):check_show())
 
 func check_show():
-	if Config.configs["Wallpaper:visible"].value and !Config.configs["ARONA:visible"].value:
+	if Config.configs["Wallpaper:visible"].value and Config.configs["Wallpaper:charactor"].value and !Config.configs["ARONA:visible"].value :
 		visible = true
 		anim_player.stop()
 		play(ANIMATIONS.START)

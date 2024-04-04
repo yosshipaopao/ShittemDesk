@@ -28,14 +28,23 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control2/VBoxContainer"]
+layout_mode = 2
 text = "NEW_VERSION_DETECTED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LatestVersionLabel" type="Label" parent="Control2/VBoxContainer"]
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
