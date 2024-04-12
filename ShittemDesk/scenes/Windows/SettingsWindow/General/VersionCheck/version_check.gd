@@ -16,15 +16,16 @@ func _ready():
 	
 @onready var latest_version_label = $VersionCheckWindow/Panel/Control2/VBoxContainer/LatestVersionLabel
 
-func _on_http_request_request_completed(_result, _response_code, _headers, body):
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	var response = json.get_data()
-	if "v" + current_version != response["tag_name"]:
-		version_check_window.popup_centered()
-		version_check_window.move_to_foreground()
-		version_check_window.grab_focus()
-		latest_version_label.text = response["tag_name"]
+func _on_http_request_request_completed(result, _response_code, _headers, body):
+	if result == HTTPRequest.RESULT_SUCCESS:
+		var json = JSON.new()
+		json.parse(body.get_string_from_utf8())
+		var response = json.get_data()
+		if "v" + current_version != response["tag_name"]:
+			version_check_window.popup_centered()
+			version_check_window.move_to_foreground()
+			version_check_window.grab_focus()
+			latest_version_label.text = response["tag_name"]
 
 func _on_button_pressed():
 	http_request.request("https://api.github.com/repos/yosshipaopao/ShittemDesk/releases/latest")
