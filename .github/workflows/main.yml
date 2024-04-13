@@ -88,7 +88,7 @@ jobs:
         id: build_installer
         continue-on-error: true
         run: |
-          dotnet tool install --global wix
+          dotnet tool install --global wix --version 4.0.5
           wix --version
           wix extension add WixToolset.UI.wixext/4.0.5 WixToolset.Util.wixext/4.0.5
           wix build -platform x86 -out "../ShittemDesk_Setup.msi" -culture ja-JP -ext WixToolset.UI.wixext -ext WixToolset.Util.wixext "./Package.wxs" "./InstallDir_NoLicense.wxs"
