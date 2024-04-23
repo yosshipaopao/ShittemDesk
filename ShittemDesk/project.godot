@@ -37,7 +37,7 @@ WindowManager="*res://scenes/Singletons/CS/WindowManager.cs"
 TimeManager="*res://scenes/Singletons/TimeManager/TimeManager.tscn"
 BubbleWindow="*res://scenes/Windows/Main/BubbleWindow/BubbleWindow.tscn"
 MusicManager="*res://scenes/Windows/Main/MusicManager/MusicManagerWindow.tscn"
-DiscordRPC="*res://scenes/Singletons/DiscordRPC/DiscordRPC.tscn"
+DiscordRPC="*res://scenes/Singletons/DiscordRPC/DiscordRPC.gd"
 
 [debug]
 
@@ -50,6 +50,8 @@ window/size/viewport_height=300
 window/size/borderless=true
 window/size/always_on_top=true
 window/size/transparent=true
+window/size/extend_to_title=true
+window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
 
@@ -89,6 +91,11 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translations=PackedStringArray("res://assets/translate/Translate.en.translation", "res://assets/translate/Translate.ja.translation")
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
 
 [rendering]
 
