@@ -1,7 +1,6 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://sbqvhaly02df"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://sbqvhaly02df"]
 
 [ext_resource type="StyleBox" uid="uid://ix3cjumv8uip" path="res://themes/default_button_Style.tres" id="1_6683c"]
-[ext_resource type="Texture2D" uid="uid://d14mxnsuy6axj" path="res://themes/grabber.png" id="2_y18jd"]
 
 [sub_resource type="SystemFont" id="SystemFont_835wa"]
 
@@ -65,9 +64,9 @@ Button/styles/focus = ExtResource("1_6683c")
 Button/styles/hover = ExtResource("1_6683c")
 Button/styles/normal = ExtResource("1_6683c")
 Button/styles/pressed = ExtResource("1_6683c")
-HSlider/icons/grabber = ExtResource("2_y18jd")
-HSlider/icons/grabber_disabled = ExtResource("2_y18jd")
-HSlider/icons/grabber_highlight = ExtResource("2_y18jd")
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
 HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_7veqa")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_tywp4")
 HSlider/styles/slider = SubResource("StyleBoxFlat_s1sww")

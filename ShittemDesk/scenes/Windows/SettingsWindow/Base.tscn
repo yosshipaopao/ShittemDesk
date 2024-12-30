@@ -122,15 +122,15 @@ corner_radius_top_right = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8oqd"]
 bg_color = Color(0.984314, 0.811765, 0.188235, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mxnb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsboo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5sq5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny2sx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lhp0l"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5sq5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsboo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5mxnb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -361,11 +361,11 @@ offset_right = -12.0
 offset_bottom = 13.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5mxnb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qsboo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y5sq5")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ny2sx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lhp0l")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_y5sq5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qsboo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5mxnb")
 icon = ExtResource("10_nyfi8")
 
 [node name="TopHandler" type="Control" parent="."]

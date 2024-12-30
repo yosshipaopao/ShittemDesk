@@ -17,7 +17,7 @@ run/main_scene="res://scenes/Windows/SettingsWindow/Base.tscn"
 config/use_custom_user_dir=true
 config/auto_accept_quit=false
 config/quit_on_go_back=false
-config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 run/max_fps=60
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 boot_splash/image="res://themes/StartupLogo.png"
@@ -37,6 +37,7 @@ WindowManager="*res://scenes/Singletons/CS/WindowManager.cs"
 TimeManager="*res://scenes/Singletons/TimeManager/TimeManager.tscn"
 BubbleWindow="*res://scenes/Windows/Main/BubbleWindow/BubbleWindow.tscn"
 MusicManager="*res://scenes/Windows/Main/MusicManager/MusicManagerWindow.tscn"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 DiscordRPC="*res://scenes/Singletons/DiscordRPC/DiscordRPC.gd"
 
 [debug]
@@ -61,7 +62,7 @@ project/assembly_name="ShittemDesk"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/discord-sdk-gd/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 [file_customization]
 
