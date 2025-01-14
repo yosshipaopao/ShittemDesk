@@ -8,9 +8,7 @@ mode = 3
 title = "WallPaper"
 size = Vector2i(1920, 1080)
 visible = false
-unresizable = true
 borderless = true
-unfocusable = true
 script = ExtResource("1_11yba")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]

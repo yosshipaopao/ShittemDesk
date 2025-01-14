@@ -37,8 +37,8 @@ WindowManager="*res://scenes/Singletons/CS/WindowManager.cs"
 TimeManager="*res://scenes/Singletons/TimeManager/TimeManager.tscn"
 BubbleWindow="*res://scenes/Windows/Main/BubbleWindow/BubbleWindow.tscn"
 MusicManager="*res://scenes/Windows/Main/MusicManager/MusicManagerWindow.tscn"
-DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
-DiscordRPC="*res://scenes/Singletons/DiscordRPC/DiscordRPC.gd"
+Discord="*res://scenes/Singletons/DiscordRPC/DiscordRPC.gd"
+DiscordAutoload="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 

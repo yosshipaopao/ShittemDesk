@@ -24,6 +24,13 @@ public partial class WallpaperWindow : Window
                 if (value)
                 {
                     Visible = true;
+                    User32.EnumWindows((hwnd, lParam) =>
+                    {
+                        var shell = User32.FindWindowEx(hwnd, IntPtr.Zero, "SHELLDLL_DefView", null);
+                        if (shell != IntPtr.Zero)
+                            workerw = User32.FindWindowEx(hwnd, IntPtr.Zero, "WorkerW", null);
+                        return true;
+                    }, IntPtr.Zero);
                     User32.EnumWindows((hw, p) =>
                     {
                         int processId;
@@ -36,9 +43,11 @@ public partial class WallpaperWindow : Window
                         return true;
                     }, IntPtr.Zero);
                     User32.ShowWindow(wallpaper_hwnd, User32.SW_HIDE);
-                    User32.SetWindowLong(wallpaper_hwnd, -20, User32.GetWindowLong(wallpaper_hwnd, -20) | User32.WS_EX_LAYERED | User32.WS_EX_TOOLWINDOW);
-                    User32.SetLayeredWindowAttributes(wallpaper_hwnd, 0, 0, User32.LWA_ALPHA);
+                    User32.SetWindowLong(wallpaper_hwnd, User32.GWL_STYLE, User32.WS_CHILDWINDOW);
+                    User32.SetWindowLong(wallpaper_hwnd, User32.GWL_EX_STYLE, User32.GetWindowLong(wallpaper_hwnd, -20) | User32.WS_EX_LAYERED | User32.WS_EX_NOACTIVATE);
+                    //User32.SetLayeredWindowAttributes(wallpaper_hwnd, 0, 0, User32.LWA_ALPHA);
                     User32.ShowWindow(wallpaper_hwnd, User32.SW_SHOW);
+                    User32.SetParent(wallpaper_hwnd,workerw);
                 }
                 else
                 {
@@ -58,16 +67,20 @@ public partial class WallpaperWindow : Window
     {
         base._Ready();
         User32.SendMessageTimeout(User32.FindWindow("Progman", null), 0x052C, new IntPtr(0), IntPtr.Zero, 0x0, 1000, out var result);
-        while (workerw == IntPtr.Zero)
+        //while (workerw == IntPtr.Zero)
         {
             User32.EnumWindows((hwnd, lParam) =>
             {
-                var shell = User32.FindWindowEx(hwnd, IntPtr.Zero, "SHELLDLL_DefView", null);
-                if (shell != IntPtr.Zero)
-                    workerw = User32.FindWindowEx(IntPtr.Zero, hwnd, "WorkerW", null);
+                if(workerw == IntPtr.Zero)
+                {
+                    var shell = User32.FindWindowEx(hwnd, IntPtr.Zero, "SHELLDLL_DefView", null);
+                    if (shell != IntPtr.Zero)
+                        workerw = User32.FindWindowEx(hwnd, IntPtr.Zero, "WorkerW", null);
+                }
                 return true;
             }, IntPtr.Zero);
         }
+        
         var hdcSrc = User32.GetDCEx(workerw, IntPtr.Zero, 0x403);
         var hdcDest = GDI32.CreateCompatibleDC(hdcSrc);
         var rect = User32.GetRect(workerw);
@@ -86,14 +99,22 @@ public partial class WallpaperWindow : Window
     {
         if (WallpaperVisible)
         {
-            var hdcSrc = User32.GetDC(wallpaper_hwnd);
-            var hdcDest = User32.GetDCEx(workerw, IntPtr.Zero, 0x403);
+            /*
+            var hdcSrc = User32.GetDCEx(wallpaper_hwnd, IntPtr.Zero, 0x403);
+            var hdcDest = User32.GetDCEx(workerw, IntPtr.Zero, 0x403); 
             var ScreenPos = DisplayServer.ScreenGetPosition();
             var ScreenSize = DisplayServer.ScreenGetSize();
             Size = ScreenSize;
-            GDI32.BitBlt(hdcDest,ScreenPos.X, ScreenPos.Y, ScreenSize.X, ScreenSize.Y, hdcSrc, 0, 0, GDI32.SRCCOPY);
-            User32.ReleaseDC(wallpaper_hwnd, hdcSrc);
-            User32.ReleaseDC(workerw, hdcDest);
+
+            GDI32.BitBlt(hdcDest, 0, 0, 1920, 1080, hdcSrc, 0, 0, 0x00CC0020);
+            //GDI32.BitBlt(hdcDest,ScreenPos.X, ScreenPos.Y, ScreenSize.X, ScreenSize.Y, hdcSrc, 0, 0, GDI32.SRCCOPY);
+            //User32.ReleaseDC(wallpaper_hwnd, hdcSrc);
+            //User32.ReleaseDC(workerw, hdcDest);
+
+            GD.Print("wallp");
+            GD.Print(hdcSrc);
+            GD.Print(hdcDest);
+            GD.Print(workerw);*/
         }
     }
 }
