@@ -5,7 +5,7 @@
         UpgradeCode="0FED8680-2F04-40AE-8C93-A38B9DAC7EF5"
         Language="1041"
         Manufacturer="yosshipaopao"
-        Version="1.0.6">
+        Version="1.1.0">
 
 		<MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A newer version is already installed."/>
 

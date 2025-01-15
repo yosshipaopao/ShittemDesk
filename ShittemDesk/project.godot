@@ -12,7 +12,7 @@ config_version=5
 
 config/name="ShittemDesk"
 config/description=" デスクトップ上や壁紙にブルーアーカイブのキャラクターを表示させることのできるWindows用アシスタントアプリ "
-config/version="1.0.6"
+config/version="1.1.0"
 run/main_scene="res://scenes/Windows/SettingsWindow/Base.tscn"
 config/use_custom_user_dir=true
 config/auto_accept_quit=false
