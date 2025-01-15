@@ -47,7 +47,7 @@ jobs:
       - uses: chickensoft-games/setup-godot@v2
         name: 🤖 Setup Godot
         with:
-          version: 4.3
+          version: 4.2.1
           use-dotnet: true
           include-templates: true
   
