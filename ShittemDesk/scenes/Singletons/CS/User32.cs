@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using static Godot.HttpRequest;
+using static Godot.OpenXRInterface;
 public partial class User32
 {
     public delegate bool EnumThreadDelegate(IntPtr hWnd, IntPtr lParam);
@@ -12,6 +14,7 @@ public partial class User32
     public const int WM_WINDOWPOSCHANGING = 0x0046, WM_WINDOWPOSCHANGED = 0x0047;
     public static IntPtr HWND_TOPMOST = new( -1);
     public const uint SWP_NOSIZE = 0x0001, SWP_NOMOVE = 0x0002, SWP_NOZORDER = 0x0004, SWP_NOACTIVATE = 0x0010;
+    public const int CS_PARENTDC = 0x0080;
 
     [StructLayout(LayoutKind.Sequential)]
     public struct RECT
@@ -73,6 +76,13 @@ public partial class User32
     public static extern int SendMessageTimeout(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam, uint fuFlags, uint uTimeoue, out IntPtr pdwResult);
     [DllImport("user32.dll")]
     public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+    [DllImport("user32.dll")]
+    public static extern IntPtr DefWindowProc(IntPtr hWnd,uint uMsg,IntPtr wParam,IntPtr lParam);
+
+    [DllImport("user32.dll")]
+    public static extern void PostQuitMessage(int nExitCode);
+
     public static RECT GetRect(IntPtr hWnd)
     {
         var rect = new RECT();

@@ -1,10 +1,21 @@
 using Godot;
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
+using static Godot.HttpRequest;
+using static Godot.OpenXRInterface;
+using static WindowClass;
 
 public partial class WallpaperWindow : Window
 {
+    const uint WM_DESTROY = 0x0002;
+
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    static extern IntPtr GetModuleHandle([MarshalAs(UnmanagedType.LPWStr)] in string lpModuleName);
+
+
+    const string WindowClassName = "ShittemDesk DesktopWindow";
     private int processID = System.Environment.ProcessId;
     private IntPtr workerw;
     private IntPtr wallpaper_hwnd;
@@ -19,6 +30,8 @@ public partial class WallpaperWindow : Window
         get => wallpaper_visible;
         set
         {
+            wallpaper_visible = value;
+            return;
             if (wallpaper_visible != value)
             {
                 if (value)
@@ -45,7 +58,6 @@ public partial class WallpaperWindow : Window
                     User32.ShowWindow(wallpaper_hwnd, User32.SW_HIDE);
                     User32.SetWindowLong(wallpaper_hwnd, User32.GWL_STYLE, User32.WS_CHILDWINDOW);
                     User32.SetWindowLong(wallpaper_hwnd, User32.GWL_EX_STYLE, User32.GetWindowLong(wallpaper_hwnd, -20) | User32.WS_EX_LAYERED | User32.WS_EX_NOACTIVATE);
-                    //User32.SetLayeredWindowAttributes(wallpaper_hwnd, 0, 0, User32.LWA_ALPHA);
                     User32.ShowWindow(wallpaper_hwnd, User32.SW_SHOW);
                     User32.SetParent(wallpaper_hwnd,workerw);
                 }
@@ -66,6 +78,7 @@ public partial class WallpaperWindow : Window
     public override void _Ready()
     {
         base._Ready();
+        return;
         User32.SendMessageTimeout(User32.FindWindow("Progman", null), 0x052C, new IntPtr(0), IntPtr.Zero, 0x0, 1000, out var result);
         //while (workerw == IntPtr.Zero)
         {
@@ -94,12 +107,39 @@ public partial class WallpaperWindow : Window
         User32.ReleaseDC(workerw, hdcSrc);
         wallpaper_bitmap = System.Drawing.Image.FromHbitmap(hBitmap);
         GDI32.DeleteObject(hBitmap);
+
+        var hCurInst = GetModuleHandle(null);
+        var wc = new WindowClass.WNDCLASSEX()
+        {
+            cbSize = Marshal.SizeOf(typeof(WNDCLASSEX)),
+            style = User32.CS_PARENTDC,
+            lpfnWndProc = (WNDPROC<WindowProcedure>)WndProc,
+            cbClsExtra = 0,
+            cbWndExtra = 0,
+            hInstance = hCurInst,
+            lpszMenuName = null,
+            lpszClassName = "WindowClassName"
+        };
+        // todo .............
+    }
+    private IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+    {
+        switch (msg)
+        {
+            case WM_DESTROY:
+                User32.PostQuitMessage(0);
+                break;
+            default:
+                return User32.DefWindowProc(hWnd, msg, wParam, lParam);
+        }
+
+        return IntPtr.Zero;
     }
     public void DrawDesktop()
     {
+        return;
         if (WallpaperVisible)
         {
-            /*
             var hdcSrc = User32.GetDCEx(wallpaper_hwnd, IntPtr.Zero, 0x403);
             var hdcDest = User32.GetDCEx(workerw, IntPtr.Zero, 0x403); 
             var ScreenPos = DisplayServer.ScreenGetPosition();
@@ -110,11 +150,6 @@ public partial class WallpaperWindow : Window
             //GDI32.BitBlt(hdcDest,ScreenPos.X, ScreenPos.Y, ScreenSize.X, ScreenSize.Y, hdcSrc, 0, 0, GDI32.SRCCOPY);
             //User32.ReleaseDC(wallpaper_hwnd, hdcSrc);
             //User32.ReleaseDC(workerw, hdcDest);
-
-            GD.Print("wallp");
-            GD.Print(hdcSrc);
-            GD.Print(hdcDest);
-            GD.Print(workerw);*/
         }
     }
 }
