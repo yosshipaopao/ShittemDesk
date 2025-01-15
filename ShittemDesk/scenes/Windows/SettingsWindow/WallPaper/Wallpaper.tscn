@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmtahih07i0n0"]
+[gd_scene load_steps=7 format=3 uid="uid://dmtahih07i0n0"]
 
 [ext_resource type="Theme" uid="uid://dddjfm3e23ruy" path="res://themes/SettingsWindow.tres" id="1_gs6c5"]
+[ext_resource type="PackedScene" uid="uid://b5al8ahno30no" path="res://scenes/Windows/SettingsWindow/WallPaper/Message.tscn" id="2_fetmg"]
 [ext_resource type="PackedScene" uid="uid://d3k8e5xei6orm" path="res://scenes/Windows/SettingsWindow/WallPaper/DaySpeed.tscn" id="3_50y2b"]
 [ext_resource type="PackedScene" uid="uid://cuw0eo7lthuhi" path="res://scenes/Windows/SettingsWindow/WallPaper/Visible.tscn" id="3_52gpn"]
 [ext_resource type="PackedScene" uid="uid://cu06eche2udh1" path="res://scenes/Windows/SettingsWindow/WallPaper/Charactor.tscn" id="3_yf6lx"]
@@ -19,14 +20,21 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Visible2" parent="VBoxContainer" instance=ExtResource("2_fetmg")]
+layout_mode = 2
+
 [node name="Visible" parent="VBoxContainer" instance=ExtResource("3_52gpn")]
+visible = false
 layout_mode = 2
 
 [node name="Charactor" parent="VBoxContainer" instance=ExtResource("3_yf6lx")]
+visible = false
 layout_mode = 2
 
 [node name="DaySpeed" parent="VBoxContainer" instance=ExtResource("3_50y2b")]
+visible = false
 layout_mode = 2
 
 [node name="UpdateSpeed" parent="VBoxContainer" instance=ExtResource("4_20tqk")]
+visible = false
 layout_mode = 2

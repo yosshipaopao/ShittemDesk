@@ -1,5 +1,5 @@
 use std::panic;
-use godot::engine::Node;
+use godot::classes::Node;
 use godot::prelude::*;
 use windows::Media::Control::{GlobalSystemMediaTransportControlsSessionManager,GlobalSystemMediaTransportControlsSessionPlaybackStatus};
 use windows::Media::MediaPlaybackType;

@@ -68,4 +68,3 @@ func _on_bottom_left_handler_gui_input(event):
 func _on_bottom_right_handler_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		parent.resizing = [event.is_pressed(),event.is_pressed()]
-

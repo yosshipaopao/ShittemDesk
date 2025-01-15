@@ -17,7 +17,7 @@ run/main_scene="res://scenes/Windows/SettingsWindow/Base.tscn"
 config/use_custom_user_dir=true
 config/auto_accept_quit=false
 config/quit_on_go_back=false
-config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 run/max_fps=60
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 boot_splash/image="res://themes/StartupLogo.png"
@@ -37,7 +37,8 @@ WindowManager="*res://scenes/Singletons/CS/WindowManager.cs"
 TimeManager="*res://scenes/Singletons/TimeManager/TimeManager.tscn"
 BubbleWindow="*res://scenes/Windows/Main/BubbleWindow/BubbleWindow.tscn"
 MusicManager="*res://scenes/Windows/Main/MusicManager/MusicManagerWindow.tscn"
-DiscordRPC="*res://scenes/Singletons/DiscordRPC/DiscordRPC.tscn"
+Discord="*res://scenes/Singletons/DiscordRPC/DiscordRPC.gd"
+DiscordAutoload="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 
@@ -50,6 +51,8 @@ window/size/viewport_height=300
 window/size/borderless=true
 window/size/always_on_top=true
 window/size/transparent=true
+window/size/extend_to_title=true
+window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
 
@@ -59,7 +62,7 @@ project/assembly_name="ShittemDesk"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/discord-sdk-gd/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 [file_customization]
 
@@ -89,6 +92,11 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translations=PackedStringArray("res://assets/translate/Translate.en.translation", "res://assets/translate/Translate.ja.translation")
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
 
 [rendering]
 

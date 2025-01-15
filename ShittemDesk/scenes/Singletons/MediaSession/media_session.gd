@@ -51,4 +51,3 @@ func _on_timer_timeout():
 	if title != new_title:
 		title = new_title
 		song_changed.emit()
-
