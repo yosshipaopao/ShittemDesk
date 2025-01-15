@@ -30,7 +30,8 @@ public partial class WallpaperWindow : Window
         get => wallpaper_visible;
         set
         {
-            wallpaper_visible = value;
+            Visible = false;
+            wallpaper_visible = false;
             return;
             if (wallpaper_visible != value)
             {
